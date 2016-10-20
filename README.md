@@ -9,7 +9,7 @@
 
 []: }}}1
 
-<!-- badge? -->
+[![PyPI version](https://badge.fury.io/py/obfusk.svg)](https://badge.fury.io/py/obfusk)
 [![Build Status](https://travis-ci.org/obfusk/obfusk.py.png)](https://travis-ci.org/obfusk/obfusk.py)
 
 ## Description
