@@ -4,3 +4,7 @@
 
 .coverage
 htmlcov
+
+/build
+/dist
+/obfusk.egg-info
