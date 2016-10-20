@@ -37,7 +37,8 @@ $ pydoc obfusk                      # view docs
 
 ## TODO
 
-  * Immutable, ...
+  * proper algebraic data types?
+  * ...
 
 ## License
 

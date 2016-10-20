@@ -22,7 +22,7 @@ See obfusk/*.py for examples.
                                                                 # }}}1
 
 __version__       = "0.0.1"
-__all__           = "lazy".split()
+__all__           = "immutable lazy".split()
 
 for _m in __all__: exec("from .%s import *" % _m)
 del _m

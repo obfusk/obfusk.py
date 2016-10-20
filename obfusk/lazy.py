@@ -66,23 +66,30 @@ __all__ = "llist".split()
 
 class llist(object):                                            # {{{1
   """Lazy list."""
+
   class iterator(object):
     __slots__ = "l n".split()
+
     def __init__(self, l): self.l, self.n = l, 0
     def __iter__(self): return self
-    def next(self):
+
+    def __next__(self):
       try:
         m = self.n; self.n += 1; return self.l[m]
       except IndexError: raise StopIteration
-    __next__ = next
+    next = __next__
+
   __slots__ = "data it lock".split()
+
   def __init__(self, it, rec = None):
     """Initialise with iterable; for recursive definitions, rec can be
     passed a lambda that takes the llist and returns an iterable (to
     chain to the first one)."""
     self.data, self.it, self.lock = [], None, threading.RLock()
     self.it = iter(itertools.chain(it, rec(self)) if rec else it)
+
   def __iter__(self): return type(self).iterator(self)
+
   def __getitem__(self, k):
     """Item at index or islice."""
     if isinstance(k, slice):
