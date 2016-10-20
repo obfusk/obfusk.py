@@ -18,13 +18,35 @@ obfusk.py - functional programming (& other tools) library for python (2+3)
 
 See `obfusk/*.py` for the code (with examples).
 
-<!--
-
 ## Examples
 
-...
+```python
+>>> # Immutable base class
+>>> from obfusk import Immutable
+>>> class Maybe(Immutable): pass
+>>> class Just(Maybe):
+...   __slots__ = "value".split()
+...   def __init__(self, value):
+...     super(Just, self).__init__(value = value)
+>>> class Nothing(Maybe): pass
+>>> x, y = Just(42), Nothing()
+>>> x
+Just(value = 42)
+>>> y
+Nothing()
+>>> x.value
+42
+```
 
--->
+```python
+>>> # lazy list
+>>> fibs = llist([0, 1], rec = lambda fibs:
+...        ( m+n for m,n in izip(fibs, fibs[1:]) ))
+>>> list(fibs[:10])
+[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+```
+
+...
 
 ## Specs & Docs
 
